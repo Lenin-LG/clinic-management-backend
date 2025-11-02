@@ -1,0 +1,35 @@
+services:
+  mysql-clinica:
+    image: mysql:8.0
+    container_name: mysql-clinica
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: clinica_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345678
+    ports:
+      - "3307:3306"
+    networks:
+      - clinica-net
+    volumes:
+      - mysql_data:/var/lib/mysql
+  clinica:
+    build: .
+    container_name: clinica
+    depends_on:
+      - mysql-clinica
+    ports:
+      - "8080:8080"
+    networks:
+      - clinica-net
+    environment:
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
+      - SPRING_DATASOURCE_USERNAME=${MYSQL_USER}
+      - SPRING_DATASOURCE_PASSWORD=${MYSQL_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+networks:
+  clinica-net:
+    driver: bridge
+volumes:
+  mysql_data:
