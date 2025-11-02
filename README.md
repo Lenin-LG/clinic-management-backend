@@ -13,6 +13,10 @@ The system allows for the management of patients, doctors, appointments, and aut
 
 It includes configuration for easy execution using **Docker Compose**, without the need to install MySQL locally.
 
+🔗 This backend connects with the frontend built in Angular:  
+👉 [clinic-management-frontend](https://github.com/Lenin-LG/clinic-management-frontend.git)
+
+
 ---
 
 ## ⚙️ Prerequisites
