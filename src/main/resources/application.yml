@@ -7,6 +7,7 @@ spring:
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
     hikari:
+      initialization-fail-timeout: -1
       maximum-pool-size: 10         # Numero maximo de conexiones en el pool
       minimum-idle: 5               # Minimo de conexiones inactivas
       idle-timeout: 600000          # Tiempo (ms) antes de cerrar una conexion inactiva
