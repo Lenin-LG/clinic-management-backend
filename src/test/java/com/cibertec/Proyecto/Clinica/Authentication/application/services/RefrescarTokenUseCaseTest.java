@@ -37,9 +37,15 @@ class RefrescarTokenUseCaseTest {
         String username = "usuario@example.com";
 
         UserDetailsData userData = new UserDetailsData() {
+
             @Override
             public String getUsername() {
                 return username;
+            }
+
+            @Override
+            public String NombreCompleto() {
+                return "";
             }
 
             @Override

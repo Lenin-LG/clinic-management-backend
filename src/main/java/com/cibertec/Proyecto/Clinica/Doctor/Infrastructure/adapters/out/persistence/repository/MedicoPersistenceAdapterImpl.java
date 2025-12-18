@@ -10,7 +10,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -71,4 +73,38 @@ public class MedicoPersistenceAdapterImpl implements MedicoPersistence {
         return medicoRepositoryJpa.findAllMedicosConEspecialidad(pageable)
                 .map(medicoMapper::toDomain);
     }
+    @Override
+    public List<Medico> findDisponiblesEnFecha(LocalDate fecha) {
+        return medicoRepositoryJpa
+                .findMedicosDisponiblesEnFecha(fecha)
+                .stream()
+                .map(medicoMapper::toDomain)
+                .toList();
+    }
+
+    @Override
+    public Optional<Medico> findByNombresYApellidos(String nombres, String apellidos) {
+        return medicoRepositoryJpa
+                .buscarPorNombresYApellidos(nombres, apellidos)
+                .map(medicoMapper::toDomain);
+    }
+    @Override
+    public List<Medico> findDisponiblesPorEspecialidadYHora(
+            String especialidad,
+            LocalDate fecha,
+            LocalTime horaDesde
+    ) {
+        return medicoRepositoryJpa
+                .findDisponiblesPorEspecialidadYHora(
+                        especialidad,
+                        fecha,
+                        horaDesde
+                )
+                .stream()
+                .map(medicoMapper::toDomain)
+                .toList();
+    }
+
+
+
 }

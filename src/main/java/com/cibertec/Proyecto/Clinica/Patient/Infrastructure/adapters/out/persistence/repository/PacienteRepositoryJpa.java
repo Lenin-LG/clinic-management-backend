@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Repository
 public interface PacienteRepositoryJpa extends JpaRepository<PacienteEntity, Integer> {
@@ -38,4 +39,5 @@ public interface PacienteRepositoryJpa extends JpaRepository<PacienteEntity, Int
         ORDER BY p.apellidos ASC
     """)
         Page<PacienteEntity> findAllPaginado(Pageable pageable);
+    Optional<PacienteEntity> findByDni(String dni);
 }

@@ -1,7 +1,8 @@
 package com.cibertec.Proyecto.Clinica.Authentication.application.ports.out;
 
 import com.cibertec.Proyecto.Clinica.Authentication.domain.Model.UsuarioModel;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 /**
@@ -13,8 +14,8 @@ import java.util.Optional;
  */
 public interface UsuarioPersistencePort {
     Optional<UsuarioModel> usuarioPorUserName(String username);
-
+    void guardarUsuario(UsuarioModel usuario);
     void guardarToken(String token);
-
+    Page<UsuarioModel> obtenerUsuarios(Pageable pageable);
     String obtenerTokenCache(String username);
 }

@@ -64,4 +64,12 @@ public class EspecialidadPersistenceAdapterImpl implements EspecialidadPersisten
         return especialidadRepositoryJpa.findAllPaginado(PageRequest.of(page, size))
                 .map(especialidadMapper::toDomain);
     }
+
+    @Override
+    public Optional<Especialidad> findByNombre(String nombre) {
+        return especialidadRepositoryJpa
+                .findByNombreIgnoreCase(nombre)
+                .map(especialidadMapper::toDomain);
+    }
+
 }

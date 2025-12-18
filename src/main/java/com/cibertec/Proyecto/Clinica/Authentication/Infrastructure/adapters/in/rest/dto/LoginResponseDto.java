@@ -1,5 +1,7 @@
 package com.cibertec.Proyecto.Clinica.Authentication.Infrastructure.adapters.in.rest.dto;
 
+import java.util.List;
+
 /**
  * DTO de respuesta de autenticación/refresco.
  *
@@ -10,7 +12,9 @@ package com.cibertec.Proyecto.Clinica.Authentication.Infrastructure.adapters.in.
 public record LoginResponseDto(
         String accessToken,
         String refreshToken,
-        Long expiresIn
+        Long expiresIn,
+        String username,
+        String nombre
 ) {
 }
 

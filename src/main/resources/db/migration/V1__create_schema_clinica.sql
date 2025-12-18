@@ -219,7 +219,8 @@ VALUES
     ('ADMIN', 'Acceso total al sistema', TRUE),
     ('RRHH', 'Gestión de personal y nómina', TRUE),
     ('EMPLEADO', 'Acceso básico al sistema', TRUE),
-    ('GERENTE', 'Acceso a reportes y gestión avanzada', TRUE);
+    ('GERENTE', 'Acceso a reportes y gestión avanzada', TRUE),
+    ('DOCTOR', 'MEDICOS EN GENERAL', TRUE);;
 
 -- ===============================
 -- USUARIOS

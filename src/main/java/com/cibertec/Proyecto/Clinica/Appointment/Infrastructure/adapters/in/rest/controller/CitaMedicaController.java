@@ -8,6 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/citas")
@@ -49,5 +52,14 @@ public class CitaMedicaController {
         citaMedicaServicePort.eliminarCita(id);
         return ResponseEntity.noContent().build();
     }
-
+    // 🔹 Get appointments by doctor and date
+    @GetMapping("/medico/{medicoId}")
+    public ResponseEntity<List<CitaMedicaDTO>> listarPorMedicoYFecha(
+            @PathVariable Integer medicoId,
+            @RequestParam LocalDate fecha
+    ) {
+        return ResponseEntity.ok(
+                citaMedicaServicePort.listarCitasPorMedicoYFecha(medicoId, fecha)
+        );
+    }
 }

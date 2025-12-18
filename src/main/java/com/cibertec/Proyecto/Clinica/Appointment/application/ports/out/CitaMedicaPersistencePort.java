@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,4 +18,5 @@ public interface CitaMedicaPersistencePort {
     @Transactional
     CitaMedica update(CitaMedica citaMedica);
     Page<CitaMedicaDTO> findAllPaginado(Pageable pageable);
+    List<CitaMedicaDTO> findByMedicoAndFecha(Integer medicoId, LocalDate fecha);
 }

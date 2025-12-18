@@ -13,4 +13,6 @@ import lombok.Data;
 public class SeguridadModel {
     private String token;
     private String refresh;
+    private String username;
+    private String nombre;
 }

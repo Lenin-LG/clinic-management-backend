@@ -17,4 +17,5 @@ public interface PacientePersistence
     Paciente update(Paciente paciente);
     void deleteById(Integer id);
     Page<Paciente> findAllPaginado(Pageable pageable);
+    Optional<Paciente> findByDni(String dni);
 }

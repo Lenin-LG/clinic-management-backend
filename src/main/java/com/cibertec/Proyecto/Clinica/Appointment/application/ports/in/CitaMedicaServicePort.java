@@ -5,6 +5,8 @@ import com.cibertec.Proyecto.Clinica.Appointment.domain.Model.CitaMedica;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 public interface CitaMedicaServicePort {
@@ -14,4 +16,5 @@ public interface CitaMedicaServicePort {
     CitaMedica actualizarCita(CitaMedica citaMedica);
     void eliminarCita(Integer id);
     Page<CitaMedicaDTO> listarCitasPaginadas(Pageable pageable);
+    List<CitaMedicaDTO> listarCitasPorMedicoYFecha(Integer medicoId, LocalDate fecha);
 }

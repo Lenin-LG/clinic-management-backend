@@ -1,6 +1,12 @@
 
 spring:
-
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4
+          temperature: 0.7
   datasource:
     url: ${SPRING_DATASOURCE_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -34,5 +40,5 @@ logging:
 security:
     jwt:
       secret: ${JWT_SECRET}
-      access-token-expiration: 900000  # 15 minutos en milisegundos
-      refresh-token-expiration: 900000  # 15 minutos en milisegundos
+      access-token-expiration: 300000  # 15 minutos en milisegundos
+      refresh-token-expiration: 300000  # 15 minutos en milisegundos

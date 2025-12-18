@@ -15,6 +15,11 @@ public class UserDetailsDataMapper {
             }
 
             @Override
+            public String NombreCompleto() {
+                return usuario.getNombre();
+            }
+
+            @Override
             public String getPassword() {
                 return usuario.getPassword();
             }

@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -46,5 +47,10 @@ public class EspecialidadServiceimpl implements EspecialidadServicePort{
         public Page<Especialidad> listarPaginado(int page, int size) {
             return especialidadPersistence.findAllPaginado(page, size);
         }
+
+    @Override
+    public Optional<Especialidad> buscarPorNombre(String nombre) {
+        return especialidadPersistence.findByNombre(nombre);
+    }
 
 }

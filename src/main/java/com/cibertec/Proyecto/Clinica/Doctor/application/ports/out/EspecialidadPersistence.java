@@ -13,4 +13,5 @@ public interface EspecialidadPersistence {
     Especialidad actualizar(Integer id, Especialidad especialidad);
     void deleteById(Integer id);
     Page<Especialidad> findAllPaginado(int page, int size);
+    Optional<Especialidad> findByNombre(String nombre);
 }

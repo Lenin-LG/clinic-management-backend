@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -59,5 +60,9 @@ public class CitaMedicaPersistenceAdapterImpl implements CitaMedicaPersistencePo
     @Override
     public Page<CitaMedicaDTO> findAllPaginado(Pageable pageable) {
         return citaMedicaRepositoryJpa.findAllCitasConNombres(pageable);
+    }
+    @Override
+    public List<CitaMedicaDTO> findByMedicoAndFecha(Integer medicoId, LocalDate fecha) {
+        return citaMedicaRepositoryJpa.findCitasPorMedicoYFecha(medicoId, fecha);
     }
 }

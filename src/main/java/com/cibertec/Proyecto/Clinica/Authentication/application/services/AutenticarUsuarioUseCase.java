@@ -45,6 +45,8 @@ public class AutenticarUsuarioUseCase {
         return SeguridadModel.builder()
                 .token(accessToken)
                 .refresh(refreshToken)
+                .username(usuario.getUsername())
+                .nombre(usuario.NombreCompleto())
                 .build();
     }
 }

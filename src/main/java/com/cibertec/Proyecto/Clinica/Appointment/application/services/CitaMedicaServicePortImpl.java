@@ -10,7 +10,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -53,5 +55,9 @@ public class CitaMedicaServicePortImpl implements CitaMedicaServicePort {
     @Override
     public Page<CitaMedicaDTO> listarCitasPaginadas(Pageable pageable) {
         return citaMedicaPersistencePort.findAllPaginado(pageable);
+    }
+    @Override
+    public List<CitaMedicaDTO> listarCitasPorMedicoYFecha(Integer medicoId, LocalDate fecha) {
+        return citaMedicaPersistencePort.findByMedicoAndFecha(medicoId, fecha);
     }
 }

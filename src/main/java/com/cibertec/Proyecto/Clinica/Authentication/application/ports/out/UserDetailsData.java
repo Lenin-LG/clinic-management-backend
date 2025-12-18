@@ -4,6 +4,7 @@ import java.util.Collection;
 
 public interface UserDetailsData {
     String getUsername();
+    String NombreCompleto();
     String getPassword();
     boolean isActive();
     Collection<String> getRoles();

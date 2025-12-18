@@ -1,5 +1,6 @@
 package com.cibertec.Proyecto.Clinica.Authentication.Infrastructure.adapters.out.persistence.repository;
 
+import com.cibertec.Proyecto.Clinica.Authentication.Infrastructure.adapters.out.persistence.entity.RolEntity;
 import com.cibertec.Proyecto.Clinica.Authentication.Infrastructure.adapters.out.persistence.entity.UsuarioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

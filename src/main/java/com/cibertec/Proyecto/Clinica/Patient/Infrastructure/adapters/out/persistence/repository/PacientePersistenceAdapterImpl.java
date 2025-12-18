@@ -74,4 +74,10 @@ public class PacientePersistenceAdapterImpl implements PacientePersistence {
         return pacienteRepositoryJpa.findAllPaginado(pageable)
                 .map(pacienteMapper::toDomain);
     }
+
+    @Override
+    public Optional<Paciente> findByDni(String dni) {
+        return pacienteRepositoryJpa.findByDni(dni)
+                .map(pacienteMapper::toDomain);
+    }
 }

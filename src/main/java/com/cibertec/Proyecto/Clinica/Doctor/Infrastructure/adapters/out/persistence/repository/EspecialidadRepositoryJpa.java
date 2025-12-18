@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 public interface EspecialidadRepositoryJpa extends JpaRepository<EspecialidadEntity,Integer> {
     @Modifying
     @Transactional
@@ -21,4 +23,11 @@ public interface EspecialidadRepositoryJpa extends JpaRepository<EspecialidadEnt
         ORDER BY e.nombre ASC
     """)
     Page<EspecialidadEntity> findAllPaginado(Pageable pageable);
+    @Query("""
+    SELECT e
+    FROM EspecialidadEntity e
+    WHERE LOWER(e.nombre) = LOWER(:nombre)
+""")
+    Optional<EspecialidadEntity> findByNombreIgnoreCase(String nombre);
+
 }
