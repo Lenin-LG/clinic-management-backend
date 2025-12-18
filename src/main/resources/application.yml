@@ -10,8 +10,8 @@ spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${MYSQL_USER}
-    password: ${MYSQL_PASSWORD}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     hikari:
       initialization-fail-timeout: -1
       maximum-pool-size: 10         # Numero maximo de conexiones en el pool
